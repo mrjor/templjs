@@ -8,7 +8,7 @@
 * history feature to go back to the previous page.
 * caching html in javascript
 * preloading images
-* using jquery events to update the right element. 
+* using jquery events to update the target element. 
 
 ##Usage##
 
@@ -17,11 +17,21 @@ To use the TEMPL library first you have to create a template file in html.
 
 _*Example*_
 
-> templatename.html
-
 ```html
 <div id="templateName">
 	<!-- Your html elements -->
 </div>
 ```
-> Important : always wrap your html elements with a single div
+> Important : always wrap your html elements with a div or an other element containing an id or a classname. The Classname or Id will be the name of the template
+
+###Use the template with Templjs###
+To use the template in your javascript project you have to define a new template.
+
+```javascript
+	var options = {
+		url : 'content/yourtemplate.html',
+		target : 'body'
+	}
+
+	var myPage = new TEMPL.create(options);
+```
