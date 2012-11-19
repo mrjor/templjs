@@ -1,6 +1,6 @@
 /*! Templatejs - v1.0 - 19/11/2012
 * https://github.com/mrjor/templatejs
-* Copyright (c) 2012 Joran Veenstra; Licensed MIT */
+* Copyright (c) 2012 Joran Veenstra; Licensed MIT test */
 window.TEMPL  = window.TEMPL || {};
 TEMPL = function(){
 	
