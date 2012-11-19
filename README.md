@@ -17,6 +17,8 @@ To use the TEMPL library first you have to create a template file in html.
 
 _*Example*_
 
-	
+```html
+<div id="templateName">
 
-##Examples##
+</div>
+```
