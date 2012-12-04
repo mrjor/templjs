@@ -30,8 +30,10 @@ To use the template in your javascript project you have to define a new template
 ```javascript
 	var options = {
 		url : 'content/yourtemplate.html',
-		target : 'body'
+		target : 'body', //Default
+		type : 'page' //Default
 	}
 
 	var myPage = new TEMPL.create(options);
 ```
+> 

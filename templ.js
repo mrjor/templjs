@@ -94,13 +94,23 @@ TEMPL = function(){
 					var the_html = instance.cache;
 					var the_content = '';
 					
-					for(tag in instance.data)
-					{
-						var reg = new RegExp('{'+tag+'}', "g");
-						the_html = the_html.replace(reg, instance.data[tag]);
-					}
+					var fn = new Function("obj",
+					  "var p=[],print=function(){p.push.apply(p,arguments);};" +
+			
+					  "with(obj){p.push('" +
+					 
+						the_html
+							 .replace(/[\r\t\n]/g, " ")
+							 .split("<%").join("\t")
+							 .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+							 .replace(/\t=(.*?)%>/g, "',$1,'")
+							 .split("\t").join("');")
+							 .split("%>").join("p.push('")
+							 .split("\r").join("\\'")
+						+ "');}return p.join('');"
+					);
 				
-					the_content = $(the_html);
+					the_content = $(fn(instance.data));
 					the_content.data(instance.data);
 					
 					if(instance.opt.type == 'page') _currentpage = the_content.attr('id');	
